@@ -1,5 +1,5 @@
 var ranking = require('../models/ranking.js');
-
+//high 스코어 받아옴
 exports.highScore = function(req,res){
 	 try {
         var nick_name = req.body.nick_name;
@@ -15,7 +15,7 @@ exports.highScore = function(req,res){
         console.error(err);
     }
 };
-
+//start time 저장
 exports.starttime = function(req,res){
 	var data = [];
 	var nick_name = req.body.nick_name;
@@ -28,6 +28,7 @@ exports.starttime = function(req,res){
 		}
 	});
 }
+//play time 저장
 exports.playtime = function(req,res){
 	var data = [];
 	var play_time = req.body.play_time;
@@ -44,6 +45,7 @@ exports.playtime = function(req,res){
 		}
 	});
 }
+//end time 저장
 exports.endtime = function(req,res){
 	var data = [];
 	var nick_name = req.body.nick_name;

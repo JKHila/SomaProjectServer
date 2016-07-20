@@ -64,7 +64,7 @@ exports.registerScore = function(data, callback) {
         config.bridgePool.acquire(function(err, conn) {
             if (err) console.error('err ranking.registerScore 1', err);
             // console.log('data', data);
-            conn.query('INSERT INTO user_table VALUES (?,0,0,now(),0,now());', data, function(err, result) {
+            conn.query('INSERT INTO user_table VALUES (?,0,now(),0,now());', data, function(err, result) {
                 if (err) console.error('err ranking.registerScore 2', err);
                 callback(err, result);
             });

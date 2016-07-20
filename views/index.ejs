@@ -6,6 +6,10 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <form action="/send" method="post">
+    	message1 : <input type="text" name="message1"><br>
+    	message2 : <input type="text" name="message2"><br>
+    	<input type="submit" value="전송">
+    </form>
   </body>
 </html>
