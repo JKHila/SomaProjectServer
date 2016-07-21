@@ -33,7 +33,21 @@ exports.unregisterId = function (id, callback) {
 		console.error('error :', err);
 	}
 };
-
+exports.checkId = function(id, callback) {
+    try {
+        config.bridgePool.acquire(function(err, conn) {
+            if (err) console.error('err ranking.checkUser 1', err);
+            // console.log('data', data);
+            conn.query('SELECT COUNT(id) AS cnt FROM registid WHERE id=?;', [id], function(err, results) {
+                if (err) console.error('err ranking.checkUser 2', err);
+                callback(err, results);
+            });
+            config.bridgePool.release(conn); //이걸 안하면 반납이 안됨
+        });
+    } catch (err) {
+        console.error('error :', err);
+    }
+};
 // GCM ID 받기
 exports.getregisterId = function (callback) {
 	try {
