@@ -123,12 +123,8 @@ exports.ranking = function(req, res) {
                 if (results[0].cnt == 0) { // 신규 유저
                     // 배열에 파라미터를 넣음
                     data.push(nick_name);
-                    //data.push(user_id);
-                    //data.push(score);
-                    //data.push(start_time);
-                    //data.push(play_time);
-                    //data.push(end_time);
-
+                    data.push(score);
+                    
                     // 점수 등록
                     ranking.registerScore(data, function(err, result) {
                         if (err) {

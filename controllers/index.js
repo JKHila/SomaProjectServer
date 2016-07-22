@@ -10,14 +10,14 @@ exports.index = function(req, res) {
 
 // 푸쉬 등록
 exports.regist = function(req, res) {
-	var regId = req.body.regId;
-	//console.log(reqId);
+    var regId = req.body.regId;
+    console.log(regId);
     index.checkId(regId, function(err, results) {
         if (err) {
             console.log(err);
         } else {
             if (results[0].cnt == 0) {
-            	console.log('register id=', regId);
+                console.log('register id=', regId);
                 index.registerId(regId, function(err, result) {
                     if (err) {
                         console.error(err);
@@ -29,7 +29,6 @@ exports.regist = function(req, res) {
             }
         }
     });
-
 };
 
 // 푸쉬 등록 해제
